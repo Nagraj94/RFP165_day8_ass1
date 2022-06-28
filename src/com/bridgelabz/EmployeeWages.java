@@ -5,28 +5,34 @@ public class EmployeeWages {
     final static int EMP_PART_TIME = 2;
     final static int WAGES_PER_HRS = 20;
     final static int DAYS_PER_MONTH = 20;
+    final static int TOTAL_WORKING_HRS = 100;
     public static void main(String[] args) {
         int empHrs = 0;
         int dailyWages = 0;
         int totalWages = 0;
-        int empCheck = (int) Math.floor(Math.random() * 10) % 3;
-        switch (empCheck){
-            case EMP_FULL_TIME:
-                System.out.println("employee is present for full time ");
-                empHrs = 8;
-                break;
-            case EMP_PART_TIME:
-                System.out.println("employee is present for part time ");
-                empHrs = 4;
-                break;
-            default:
-                System.out.println("employee is absent");
-                empHrs = 0;
-                break;
+        int totalDays = 0;
+        int totalHrs = 0;
+        while (totalHrs<=TOTAL_WORKING_HRS && totalDays<DAYS_PER_MONTH){
+            totalDays++;
+            int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+            switch (empCheck){
+                case EMP_FULL_TIME:
+                    System.out.println("employee is present for full time ");
+                    empHrs = 8;
+                    break;
+                case EMP_PART_TIME:
+                    System.out.println("employee is present for part time ");
+                    empHrs = 4;
+                    break;
+                default:
+                    System.out.println("employee is absent");
+                    empHrs = 0;
+                    break;
+            }
+           totalHrs += empHrs;
+            System.out.println("at day " + totalDays + " employee hrs is "+ totalHrs);
         }
-        dailyWages = WAGES_PER_HRS * empHrs;
-        System.out.println("employee daily wages is: "+ dailyWages);
-        totalWages = dailyWages * DAYS_PER_MONTH;
-        System.out.println("employee monthly wages is: " + totalWages);
+        totalWages =totalHrs * WAGES_PER_HRS;
+        System.out.println("total employee wages is: " + totalWages);
     }
 }
