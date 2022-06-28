@@ -6,9 +6,9 @@ public class EmployeeWages {
     final static int WAGES_PER_HRS = 20;
     final static int DAYS_PER_MONTH = 20;
     final static int TOTAL_WORKING_HRS = 100;
-    public static void main(String[] args) {
+
+    static void calWages(){
         int empHrs = 0;
-        int dailyWages = 0;
         int totalWages = 0;
         int totalDays = 0;
         int totalHrs = 0;
@@ -29,10 +29,13 @@ public class EmployeeWages {
                     empHrs = 0;
                     break;
             }
-           totalHrs += empHrs;
+            totalHrs += empHrs;
             System.out.println("at day " + totalDays + " employee hrs is "+ totalHrs);
         }
         totalWages =totalHrs * WAGES_PER_HRS;
         System.out.println("total employee wages is: " + totalWages);
+    }
+    public static void main(String[] args) {
+        calWages();
     }
 }
