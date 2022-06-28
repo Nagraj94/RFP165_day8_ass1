@@ -7,19 +7,20 @@ public class EmployeeWages {
     public static void main(String[] args) {
         int empHrs = 0;
         int dailyWages = 0;
-        double empCheck = Math.floor(Math.random() * 10) % 2;
-        if (EMP_FULL_TIME == empCheck )
-        {
-            System.out.println("employee is present full time ");
-            empHrs = 8;
-        } else if (EMP_PART_TIME == empCheck)
-        {
-            System.out.println("employee is present for part time ");
-            empHrs = 4;
-        } else
-        {
-            System.out.println("employee is absent");
-            empHrs = 0;
+        int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+        switch (empCheck){
+            case EMP_FULL_TIME:
+                System.out.println("employee is present for full time ");
+                empHrs = 8;
+                break;
+            case EMP_PART_TIME:
+                System.out.println("employee is present for part time ");
+                empHrs = 4;
+                break;
+            default:
+                System.out.println("employee is absent");
+                empHrs = 0;
+                break;
         }
         dailyWages = WAGES_PER_HRS * empHrs;
         System.out.println("employee daily wages is: "+ dailyWages);
